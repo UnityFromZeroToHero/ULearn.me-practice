@@ -14,9 +14,9 @@ namespace Practice
             int secondVariable = 5;
 
             //Exchange of values of two variables by using the 3rd one.
-            /*int thirdVariable = firstVariable;
+            int thirdVariable = firstVariable;
             firstVariable = secondVariable;
-            secondVariable = thirdVariable;*/
+            secondVariable = thirdVariable;
             
             //Exchange of values of two variables without using the 3rd one.
             (firstVariable, secondVariable) = (secondVariable, firstVariable);
