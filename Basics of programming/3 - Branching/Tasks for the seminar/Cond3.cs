@@ -25,15 +25,13 @@ namespace Practice
         static bool isPreviousOrNextTicketLucky(string ticketNumber)
         {
             int firstHalfOfTicketNumber = Convert.ToInt32(ticketNumber.Substring(0, ticketNumber.Length/2));
-            int secondPartOfPreviousTicketNumber = Convert.ToInt32(ticketNumber.Substring(ticketNumber.Length/2)) - 1;
-            int secondPartOfNextTicketNumber = Convert.ToInt32(ticketNumber.Substring(ticketNumber.Length/2)) + 1;
+            int secondHalfOfTicketNumber = Convert.ToInt32(ticketNumber.Substring(ticketNumber.Length/2));
 
             int firstHalfSum = calculateSumOfDigits(firstHalfOfTicketNumber, ticketNumber.Length);
-            int secondHalfPreviousSum = calculateSumOfDigits(secondPartOfPreviousTicketNumber, ticketNumber.Length);
-            int secondHalfNextSum = calculateSumOfDigits(secondPartOfNextTicketNumber, ticketNumber.Length);
+            int secondHalfSum = calculateSumOfDigits(secondHalfOfTicketNumber, ticketNumber.Length);
 
-            if (firstHalfSum == secondHalfPreviousSum ||
-                firstHalfSum == secondHalfNextSum)
+            if (firstHalfSum == secondHalfSum - 1 ||
+                firstHalfSum == secondHalfSum + 1)
             {
                 return true;
             }
