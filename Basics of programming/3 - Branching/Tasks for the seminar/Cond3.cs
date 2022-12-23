@@ -11,27 +11,22 @@ namespace Practice
         static void Main()
         {
             string ticketNumber = Console.ReadLine();
-
-            if (isPreviousOrNextTicketLucky(ticketNumber))
-            {
-                Console.WriteLine("Yes");
-            }
-            else
-            {
-                Console.WriteLine("No");
-            }
+            
+            Console.WriteLine(isPreviousOrNextTicketLucky(ticketNumber));
         }
 
         static bool isPreviousOrNextTicketLucky(string ticketNumber)
         {
             int firstHalfOfTicketNumber = Convert.ToInt32(ticketNumber.Substring(0, ticketNumber.Length/2));
-            int secondHalfOfTicketNumber = Convert.ToInt32(ticketNumber.Substring(ticketNumber.Length/2));
+            int secondPartOfPreviousTicketNumber = Convert.ToInt32(ticketNumber.Substring(ticketNumber.Length/2)) - 1;
+            int secondPartOfNextTicketNumber = Convert.ToInt32(ticketNumber.Substring(ticketNumber.Length/2)) + 1;
 
             int firstHalfSum = calculateSumOfDigits(firstHalfOfTicketNumber, ticketNumber.Length);
-            int secondHalfSum = calculateSumOfDigits(secondHalfOfTicketNumber, ticketNumber.Length);
+            int secondHalfPreviousSum = calculateSumOfDigits(secondPartOfPreviousTicketNumber, ticketNumber.Length);
+            int secondHalfNextSum = calculateSumOfDigits(secondPartOfNextTicketNumber, ticketNumber.Length);
 
-            if (firstHalfSum == secondHalfSum - 1 ||
-                firstHalfSum == secondHalfSum + 1)
+            if (firstHalfSum == secondHalfPreviousSum ||
+                firstHalfSum == secondHalfNextSum)
             {
                 return true;
             }
